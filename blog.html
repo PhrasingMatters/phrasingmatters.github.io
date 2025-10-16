@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phrasing Matters — Blog</title>
+  <style>
+    /* --- Reset & base --- */
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body { font-family:'Helvetica Neue', Arial, sans-serif; line-height:1.6; color:#2c2c2c; background:#ffffff; }
+    .container { max-width:1200px; margin:0 auto; padding:0 40px; }
+
+    /* --- Header (copied from index) --- */
+    header { position:fixed; top:0; width:100%; background:rgba(255,255,255,0.95); backdrop-filter:blur(10px); border-bottom:1px solid #e8e8e8; z-index:1000; transition:all .3s ease; }
+    nav { display:flex; justify-content:space-between; align-items:center; padding:1.5rem 0; }
+    .logo { font-size:1.8rem; font-weight:300; color:#2c2c2c; text-decoration:none; letter-spacing:-0.02em; }
+    .nav-links { display:flex; list-style:none; gap:3rem; align-items:center; }
+    .nav-links a { color:#2c2c2c; text-decoration:none; font-weight:400; font-size:.95rem; transition:color .3s ease; letter-spacing:.3px; }
+    .nav-links a:hover { color:#666; }
+    .cta-nav { background:#2c2c2c; color:#fff; padding:12px 24px; text-decoration:none; font-weight:400; font-size:.9rem; transition:all .3s ease; letter-spacing:.5px; }
+    .cta-nav:hover { background:#1a1a1a; }
+
+    /* --- Hero --- */
+    .hero { padding-top:120px; padding-bottom:60px; background:linear-gradient(135deg,#f8f9fa 0%, #e9ecef 100%); }
+    .hero h1 { font-size:3rem; font-weight:300; letter-spacing:-0.02em; }
+    .hero p { color:#5a5a5a; max-width:700px; margin-top:1rem; }
+
+    /* --- Controls --- */
+    .controls { display:flex; gap:1rem; align-items:center; margin:2rem 0 3rem; flex-wrap:wrap; }
+    .search { flex:1 1 320px; }
+    .search input { width:100%; padding:14px 16px; border:1px solid #e8e8e8; font-size:1rem; }
+    .tags { display:flex; gap:.5rem; flex-wrap:wrap; }
+    .tag { border:1px solid #e8e8e8; padding:8px 12px; font-size:.9rem; cursor:pointer; background:#fff; }
+    .tag.active { background:#2c2c2c; color:#fff; border-color:#2c2c2c; }
+
+    /* --- Grid / cards --- */
+    .grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:2rem; margin-bottom:4rem; }
+    .card { background:#fff; border:1px solid #e8e8e8; padding:2rem; transition:box-shadow .3s ease; }
+    .card:hover { box-shadow:0 8px 30px rgba(0,0,0,.1); }
+    .meta { color:#777; font-size:.9rem; margin-bottom:.75rem; }
+    .card h3 { font-size:1.4rem; font-weight:400; margin-bottom:.75rem; }
+    .card p { color:#5a5a5a; margin-bottom:1rem; }
+    .read { color:#2c2c2c; border-bottom:1px solid #2c2c2c; text-decoration:none; font-size:.95rem; }
+    .pillrow { display:flex; gap:.5rem; margin-top:.75rem; flex-wrap:wrap; }
+    .pill { font-size:.8rem; padding:6px 10px; border:1px solid #f0f0f0; background:#f8f9fa; color:#555; }
+
+    /* --- Footer --- */
+    footer { background:#1a1a1a; color:#999; text-align:center; padding:3rem 0; font-size:.9rem; }
+
+    /* --- Mobile --- */
+    @media (max-width:768px){
+      .container { padding:0 20px; }
+      .nav-links { display:none; }
+      .hero h1 { font-size:2.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">Phrasing Matters</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#lessons">Lessons</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#resources">Resources</a></li>
+        <li><a href="contact.html" class="cta-nav">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="container">
+      <h1>Studio Blog</h1>
+      <p>Short, practical posts on technique, phrasing, tone, practice design, and musicianship. New articles added regularly.</p>
+
+      <div class="controls">
+        <div class="search">
+          <input id="search" type="search" placeholder="Search topics (e.g., 'alternate picking', 'modes', 'practice routine')"/>
+        </div>
+        <div class="tags" id="tags">
+          <button class="tag active" data-tag="all">All</button>
+          <button class="tag" data-tag="Technique">Technique</button>
+          <button class="tag" data-tag="Theory">Theory</button>
+          <button class="tag" data-tag="Practice">Practice</button>
+          <button class="tag" data-tag="Tone">Tone</button>
+          <button class="tag" data-tag="Jazz">Jazz</button>
+          <button class="tag" data-tag="Rock/Metal">Rock/Metal</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container">
+    <div id="grid" class="grid">
+      <!-- Post 1 -->
+      <article class="card" data-tags="Technique,Practice">
+        <div class="meta">Oct 10, 2025 • 4 min read</div>
+        <h3>The Micro-Accent: Making Scales Sound Like Music</h3>
+        <p>Why players sound “notey” instead of musical — and how subtle timing and pressure accents turn exercises into phrases you’d actually perform.</p>
+        <a class="read" href="posts/micro-accent.html">Read more</a>
+        <div class="pillrow">
+          <span class="pill">Technique</span><span class="pill">Practice</span>
+        </div>
+      </article>
+
+      <!-- Post 2 -->
+      <article class="card" data-tags="Theory,Jazz">
+        <div class="meta">Oct 3, 2025 • 6 min read</div>
+        <h3>Target Notes for Jazz Standards (Fast Win Guide)</h3>
+        <p>Stop chasing every chord scale. Outline changes by aiming for these two note types per chord, then decorate with passing tones.</p>
+        <a class="read" href="posts/target-notes-jazz.html">Read more</a>
+        <div class="pillrow">
+          <span class="pill">Theory</span><span class="pill">Jazz</span>
+        </div>
+      </article>
+
+      <!-- Post 3 -->
+      <article class="card" data-tags="Practice,Rock/Metal">
+        <div class="meta">Sep 22, 2025 • 5 min read</div>
+        <h3>Designing a 30-Minute Practice That Actually Sticks</h3>
+        <p>Busy schedule? Use this 3-block routine (mechanics, repertoire, phrasing) to progress without burning out.</p>
+        <a class="read" href="posts/30min-practice.html">Read more</a>
+        <div class="pillrow">
+          <span class="pill">Practice</span><span class="pill">Rock/Metal</span>
+        </div>
+      </article>
+
+      <!-- Post 4 -->
+      <article class="card" data-tags="Tone,Rock/Metal">
+        <div class="meta">Sep 12, 2025 • 3 min read</div>
+        <h3>Tight High-Gain Rhythm Without the Death Grip</h3>
+        <p>Synchronize pick and fretting hand with ghost-mutes and controlled release — big tone without extra noise.</p>
+        <a class="read" href="posts/tight-rhythm.html">Read more</a>
+        <div class="pillrow">
+          <span class="pill">Tone</span><span class="pill">Rock/Metal</span>
+        </div>
+      </article>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Phrasing Matters. Professional Guitar Instruction.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header background on scroll (matches index)
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(255,255,255,0.98)';
+        header.style.borderBottomColor = '#ddd';
+      } else {
+        header.style.background = 'rgba(255,255,255,0.95)';
+        header.style.borderBottomColor = '#e8e8e8';
+      }
+    });
+
+    // Simple search + tag filter
+    const search = document.getElementById('search');
+    const tags = document.getElementById('tags');
+    const cards = [...document.querySelectorAll('.card')];
+    let activeTag = 'all';
+
+    function applyFilters() {
+      const q = (search.value || '').toLowerCase();
+      cards.forEach(card => {
+        const text = (card.querySelector('h3').textContent + ' ' + card.querySelector('p').textContent).toLowerCase();
+        const tags = (card.dataset.tags || '').toLowerCase();
+        const tagMatch = activeTag === 'all' || tags.includes(activeTag.toLowerCase());
+        const textMatch = q === '' || text.includes(q);
+        card.style.display = (tagMatch && textMatch) ? '' : 'none';
+      });
+    }
+
+    search.addEventListener('input', applyFilters);
+
+    tags.addEventListener('click', (e) => {
+      if (e.target.classList.contains('tag')) {
+        document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
+        e.target.classList.add('active');
+        activeTag = e.target.dataset.tag;
+        applyFilters();
+      }
+    });
+  </script>
+</body>
+</html>
