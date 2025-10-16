@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Phrasing Matters - Professional Guitar Instruction</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #2c2c2c;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid #e8e8e8;
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            text-decoration: none;
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .nav-links a:hover {
+            color: #666;
+        }
+
+        .cta-nav {
+            background: #2c2c2c;
+            color: white;
+            padding: 12px 24px;
+            border: none;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .cta-nav:hover {
+            background: #1a1a1a;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-text .emphasis {
+            font-weight: 400;
+            color: #1a1a1a;
+        }
+
+        .hero-text p {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            margin-bottom: 2.5rem;
+            line-height: 1.7;
+            max-width: 480px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: #2c2c2c;
+            color: white;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+        }
+
+        .btn-primary:hover {
+            background: #1a1a1a;
+        }
+
+        .btn-secondary {
+            color: #2c2c2c;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            border-bottom: 1px solid #2c2c2c;
+            padding-bottom: 2px;
+            transition: all 0.3s ease;
+            letter-spacing: 0.3px;
+        }
+
+        .btn-secondary:hover {
+            color: #666;
+            border-bottom-color: #666;
+        }
+
+        .hero-image {
+            position: relative;
+            height: 500px;
+            background: #2c2c2c;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+        }
+
+        /* About Section */
+        .about {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 6rem;
+            align-items: start;
+        }
+
+        .about h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            margin-bottom: 2rem;
+            letter-spacing: -0.02em;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: #5a5a5a;
+            line-height: 1.8;
+            margin-bottom: 2rem;
+        }
+
+        .credentials {
+            border-left: 2px solid #e8e8e8;
+            padding-left: 2rem;
+            margin-top: 3rem;
+        }
+
+        .credentials h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #2c2c2c;
+            margin-bottom: 1rem;
+        }
+
+        .credentials ul {
+            list-style: none;
+            color: #5a5a5a;
+        }
+
+        .credentials li {
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 8rem 0;
+            background: #f8f9fa;
+        }
+
+        .services h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 3rem;
+        }
+
+        .service-card {
+            background: white;
+            padding: 3rem;
+            border: 1px solid #e8e8e8;
+            transition: all 0.3s ease;
+        }
+
+        .service-card:hover {
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card h3 {
+            font-size: 1.4rem;
+            font-weight: 400;
+            color: #2c2c2c;
+            margin-bottom: 1.5rem;
+        }
+
+        .service-card p {
+            color: #5a5a5a;
+            line-height: 1.7;
+            margin-bottom: 2rem;
+        }
+
+        .service-details {
+            font-size: 0.9rem;
+            color: #777;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 8rem 0;
+            background: white;
+        }
+
+        .testimonials h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            color: #2c2c2c;
+            text-align: center;
+            margin-bottom: 4rem;
+            letter-spacing: -0.02em;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 4rem;
+        }
+
+        .testimonial {
+            text-align: center;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            color: #2c2c2c;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+            font-style: italic;
+            font-weight: 300;
+        }
+
+        .testimonial-author {
+            color: #777;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+        }
+
+        /* Contact CTA */
+        .contact-cta {
+            padding: 8rem 0;
+            background: #2c2c2c;
+            color: white;
+            text-align: center;
+        }
+
+        .contact-cta h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .contact-cta p {
+            font-size: 1.1rem;
+            color: #ccc;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .btn-light {
+            background: white;
+            color: #2c2c2c;
+            padding: 16px 32px;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            display: inline-block;
+        }
+
+        .btn-light:hover {
+            background: #f0f0f0;
+        }
+
+        .contact-details {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 1px solid #444;
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            color: #ccc;
+            font-size: 0.95rem;
+        }
+
+        .contact-label {
+            display: block;
+            color: #999;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: #999;
+            text-align: center;
+            padding: 3rem 0;
+            font-size: 0.9rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+                text-align: center;
+            }
+
+            .hero-text h1 {
+                font-size: 2.8rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .testimonial-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-details {
+                flex-direction: column;
+                gap: 2rem;
+                text-align: center;
+            }
+        }
+
+        /* Smooth animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">Phrasing Matters</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#lessons">Lessons</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact" class="cta-nav">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Develop Your Musical <span class="emphasis">Voice</span></h1>
+                    <p>Professional guitar instruction focused on musical expression, technique development, music theory and the subtle art of phrasing that transforms good playing into compelling music.</p>
+                    <div class="hero-buttons">
+                        <a href="#contact" class="btn-primary">Schedule Consultation</a>
+                        <a href="#about" class="btn-secondary">Learn More</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <span>PROFESSIONAL GUITAR INSTRUCTION</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about fade-in">
+        <div class="container">
+            <div class="about-content">
+                <div>
+                    <h2>Philosophy</h2>
+                </div>
+                <div>
+                    <div class="about-text">
+                        Music is a language, and like any language, it's not just what you say but how you say it that matters. My approach to guitar instruction emphasizes the development of musical phrasing and understanding "the whole picutre" - the subtle timing, dynamics, harmony and expression that distinguish mechanical playing from heartfelt communication.
+                    </div>
+                    <div class="about-text">
+                        Whether you're beginning your musical journey or seeking to refine advanced techniques, we'll work together to develop your unique voice on the instrument while building a solid foundation of technical proficiency and musical understanding.
+                    </div>
+                    <div class="credentials">
+                        <h3>Background</h3>
+                        <ul>
+                            <li>Bachelors of Science - Music and Recording Technology</li>
+                            <li>15+ years teaching experience</li>
+                            <li>Metal, Jazz, Blues and Rock specialization</li>
+                            <li>Recording and performance experience</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="lessons" class="services fade-in">
+        <div class="container">
+            <h2>Lesson Formats</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Individual Instruction</h3>
+                    <p>Personalized one-on-one lessons tailored to your specific goals, skill level, and musical interests. Available both in-person and online.</p>
+                    <div class="service-details">
+                        60 minute sessions • Flexible scheduling • All levels welcome
+                    </div>
+                </div>
+                <div class="service-card">
+                    <h3>Technique Intensive</h3>
+                    <p>Focused sessions dedicated to specific technical challenges, from basic chord transitions to advanced fingerpicking patterns and complex lead techniques.</p>
+                    <div class="service-details">
+                        60-75 minute sessions • Problem-solving approach • Supplementary materials
+                    </div>
+                    <div class="service-card">
+                    <h3>Genre Deep Dive</h3>
+                    <p>Ever wanted to jump in to Jazz or drop some brutal Metalcore riffs? These sessions are designed to adapt your current skills to a new style. Technical drills, music theory, improvisation, songwriting excercises, complex lead techniques and and much more.</p>
+                    <div class="service-details">
+                        60-90 minute sessions • Supplementary materials
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials fade-in">
+        <div class="container">
+            <h2>Student Perspectives</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <p class="testimonial-text">"The focus on musical phrasing completely changed how I approach playing. I finally understand the difference between playing notes and making music."</p>
+                    <p class="testimonial-author">— Lisa N</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Patient, methodical instruction that builds real understanding. My technique has improved dramatically, but more importantly, I've found my own voice."</p>
+                    <p class="testimonial-author">— Gary M</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Patient, methodical instruction that builds real understanding. My technique has improved dramatically, but more importantly, I've found my own voice."</p>
+                    <p class="testimonial-author">— Gary M</p>
+                </div>
+                <div class="testimonial">
+                    <p class="testimonial-text">"Patient, methodical instruction that builds real understanding. My technique has improved dramatically, but more importantly, I've found my own voice."</p>
+                    <p class="testimonial-author">— Gary M</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-cta">
+        <div class="container">
+            <h2>Begin Your Musical Journey</h2>
+            <p>Ready to develop your musical talents? Let's discuss your goals and create a personalized approach to your guitar and musical education.</p>
+            <a href="#" class="btn-light" onclick="openContact()">Schedule Consultation</a>
+            <div class="contact-details">
+                <div class="contact-item">
+                    <span class="contact-label">Email</span>
+                    contact@phrasingmatters.com
+                </div>
+                <div class="contact-item">
+                    <span class="contact-label">Location</span>
+                    Available Online & In-Person
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Phrasing Matters. Professional Guitar Instruction.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+                header.style.borderBottomColor = '#ddd';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                header.style.borderBottomColor = '#e8e8e8';
+            }
+        });
+
+        function openContact() {
+            window.location.href = 'mailto:contact@phrasingmatters.com?subject=Guitar Lesson Inquiry';
+        }
+    </script>
+</body>
+</html>
