@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Phrasing Matters — Contact</title>
+  <style>
+    /* Base / header copied */
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Helvetica Neue',Arial,sans-serif;line-height:1.6;color:#2c2c2c;background:#ffffff}
+    .container{max-width:1200px;margin:0 auto;padding:0 40px}
+    header{position:fixed;top:0;width:100%;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);border-bottom:1px solid #e8e8e8;z-index:1000;transition:all .3s ease}
+    nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 0}
+    .logo{font-size:1.8rem;font-weight:300;color:#2c2c2c;text-decoration:none;letter-spacing:-.02em}
+    .nav-links{display:flex;list-style:none;gap:3rem;align-items:center}
+    .nav-links a{color:#2c2c2c;text-decoration:none;font-weight:400;font-size:.95rem;transition:color .3s ease;letter-spacing:.3px}
+    .nav-links a:hover{color:#666}
+    .cta-nav{background:#2c2c2c;color:#fff;padding:12px 24px;text-decoration:none;font-weight:400;font-size:.9rem;transition:all .3s ease;letter-spacing:.5px}
+    .cta-nav:hover{background:#1a1a1a}
+
+    /* Page header */
+    .page-hero{padding-top:120px;padding-bottom:40px;background:linear-gradient(135deg,#f8f9fa 0%,#e9ecef 100%)}
+    .page-hero h1{font-size:3rem;font-weight:300;letter-spacing:-.02em}
+    .page-hero p{color:#5a5a5a;max-width:700px;margin-top:1rem}
+
+    /* Form section */
+    .section{padding:3rem 0 6rem}
+    .grid{display:grid;grid-template-columns:1.2fr .8fr;gap:3rem}
+    .card{background:#fff;border:1px solid #e8e8e8;padding:2rem}
+    label{display:block;font-size:.95rem;margin-bottom:.35rem;color:#2c2c2c}
+    input,select,textarea{width:100%;padding:14px 16px;border:1px solid #e8e8e8;font-size:1rem}
+    textarea{min-height:160px;resize:vertical}
+    .row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+    .btn-primary{background:#2c2c2c;color:#fff;padding:16px 32px;text-decoration:none;font-weight:400;font-size:.95rem;transition:all .3s ease;letter-spacing:.5px;display:inline-block;border:0;cursor:pointer}
+    .btn-primary:hover{background:#1a1a1a}
+    .btn-light{background:#fff;color:#2c2c2c;padding:14px 24px;text-decoration:none;border:1px solid #e8e8e8;display:inline-block}
+    .muted{color:#777;font-size:.9rem}
+    .note{margin-top:1rem;color:#777;font-size:.9rem}
+    .success,.error{margin-top:1rem;padding:12px 14px;border:1px solid transparent;font-size:.95rem;display:none}
+    .success{background:#effaf0;border-color:#b7e2bc;color:#245a2f}
+    .error{background:#fff1f1;border-color:#ffd2d2;color:#7a1f1f}
+
+    /* Contact details box */
+    .details h3{font-weight:400;font-size:1.2rem;margin-bottom:.75rem}
+    .detail{margin-bottom:1rem;color:#5a5a5a}
+    .detail .label{display:block;font-size:.8rem;letter-spacing:1px;text-transform:uppercase;color:#999;margin-bottom:.25rem}
+
+    /* Footer */
+    footer{background:#1a1a1a;color:#999;text-align:center;padding:3rem 0;font-size:.9rem}
+
+    @media (max-width:900px){
+      .container{padding:0 20px}
+      .nav-links{display:none}
+      .page-hero h1{font-size:2.2rem}
+      .grid{grid-template-columns:1fr}
+      .row{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="container">
+      <a href="index.html" class="logo">Phrasing Matters</a>
+      <ul class="nav-links">
+        <li><a href="index.html#about">About</a></li>
+        <li><a href="index.html#lessons">Lessons</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html#resources">Resources</a></li>
+        <li><a href="contact.html" class="cta-nav">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <h1>Contact & Scheduling</h1>
+      <p>Tell me about your goals and current level. I’ll reply with availability, suggested lesson format, and next steps.</p>
+    </div>
+  </section>
+
+  <main class="section">
+    <div class="container grid">
+      <!-- Form -->
+      <section class="card">
+        <form id="contactForm" method="POST" action="https://formspree.io/f/YOUR_FORM_ID">
+          <!-- Honeypot -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+          <div class="row">
+            <div>
+              <label for="name">Full name</label>
+              <input id="name" name="name" type="text" required placeholder="Jane Doe">
+            </div>
+            <div>
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" required placeholder="you@email.com">
+            </div>
+          </div>
+
+          <div class="row" style="margin-top:1rem">
+            <div>
+              <label for="phone">Phone (optional)</label>
+              <input id="phone" name="phone" type="tel" placeholder="(555) 123-4567">
+            </div>
+            <div>
+              <label for="lesson">Lesson interest</label>
+              <select id="lesson" name="lesson">
+                <option>Individual Instruction</option>
+                <option>Technique Intensive</option>
+                <option>Genre Deep Dive</option>
+                <option>Not sure yet</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin-top:1rem">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Your current experience, goals, and preferred schedule"></textarea>
+          </div>
+
+          <div style="display:flex; gap:1rem; align-items:center; margin-top:1.5rem">
+            <button class="btn-primary" type="submit">Send Message</button>
+            <a class="btn-light" href="mailto:contact@phrasingmatters.com?subject=Guitar Lesson Inquiry">Email Instead</a>
+          </div>
+
+          <p class="note">This form works on GitHub Pages using <a href="https://formspree.io" target="_blank" rel="noopener">Formspree</a>. Replace <code>YOUR_FORM_ID</code> in the <code>action</code> URL after creating a free form.</p>
+          <div id="success" class="success">Thanks! Your message was sent successfully.</div>
+          <div id="error" class="error">Something went wrong. You can email me directly at contact@phrasingmatters.com.</div>
+        </form>
+      </section>
+
+      <!-- Details -->
+      <aside class="card details">
+        <h3>Studio Details</h3>
+        <div class="detail">
+          <span class="label">Email</span>
+          contact@phrasingmatters.com
+        </div>
+        <div class="detail">
+          <span class="label">Location</span>
+          Online & In-Person (by appointment)
+        </div>
+        <div class="detail">
+          <span class="label">Availability</span>
+          Weekdays: afternoons & evenings • Limited weekend slots
+        </div>
+        <div class="detail">
+          <span class="label">Styles</span>
+          Rock/Metal • Jazz • Blues • Fundamentals & Theory
+        </div>
+        <div class="detail muted">
+          I usually reply within one business day.
+        </div>
+      </aside>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Phrasing Matters. Professional Guitar Instruction.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Header effect
+    window.addEventListener('scroll', () => {
+      const header = document.querySelector('header');
+      if (window.scrollY > 50) {
+        header.style.background = 'rgba(255,255,255,0.98)';
+        header.style.borderBottomColor = '#ddd';
+      } else {
+        header.style.background = 'rgba(255,255,255,0.95)';
+        header.style.borderBottomColor = '#e8e8e8';
+      }
+    });
+
+    // Optional AJAX submit for nicer UX (works with Formspree)
+    const form = document.getElementById('contactForm');
+    const ok = document.getElementById('success');
+    const err = document.getElementById('error');
+
+    form.addEventListener('submit', async (e) => {
+      // If user left YOUR_FORM_ID in place, let the normal submit happen (will 404);
+      // they can use the Email Instead button. Otherwise, AJAX it.
+      const action = form.getAttribute('action') || '';
+      if (action.includes('YOUR_FORM_ID')) return; // normal submit
+      e.preventDefault();
+      ok.style.display = 'none'; err.style.display = 'none';
+
+      const data = new FormData(form);
+      try {
+        const res = await fetch(action, { method:'POST', body:data, headers:{ 'Accept':'application/json' }});
+        if (res.ok) {
+          ok.style.display = 'block';
+          form.reset();
+        } else {
+          err.style.display = 'block';
+        }
+      } catch {
+        err.style.display = 'block';
+      }
+    });
+  </script>
+</body>
+</html>
